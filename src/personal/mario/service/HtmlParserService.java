@@ -20,8 +20,10 @@ import personal.mario.bean.MusicCommentMessage;
 import personal.mario.utils.Constants;
 import personal.mario.utils.EncryptUtils;
 
+/*解析HTML*/
 public class HtmlParserService {
 	
+	//歌单列表页获取所有歌单URL
 	public static void parseAndSaveMusicListUrl(String html) {
 		
 		Document doc = Jsoup.parse(html);
@@ -33,6 +35,7 @@ public class HtmlParserService {
 		}
 	}
 	
+	//歌曲列表页获取所有歌曲ID
 	public static void parseMusicListAndGetMusics(String url) throws IOException {
 		Document doc = Jsoup.connect(url).get();
 		Element content = doc.getElementById("song-list-pre-cache");
@@ -44,6 +47,7 @@ public class HtmlParserService {
 		}
 	}
 	
+	//通过歌曲ID获取评论API，网易对其进行了加密
 	public static MusicCommentMessage parseCommentMessage(String songId) throws Exception {
 		String songUrl = Constants.DOMAIN + "/song?id=" + songId;
 		URL uri = new URL(songUrl);

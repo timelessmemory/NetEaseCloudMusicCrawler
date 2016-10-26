@@ -10,6 +10,7 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
 import org.apache.commons.codec.binary.Base64;
 
+/*解密工具类*/
 public class EncryptUtils {
 	public static String aesEncrypt(String value, String key) throws Exception {
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");

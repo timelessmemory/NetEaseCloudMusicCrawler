@@ -9,6 +9,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
+/*根据URL获取HTML文本*/
 public class HtmlFetcherService {
 	
 	public static String fetch(String url) throws ClientProtocolException, IOException {

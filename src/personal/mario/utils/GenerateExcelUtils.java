@@ -14,9 +14,11 @@ import org.apache.poi.hssf.util.HSSFColor;
 import personal.mario.bean.MusicComment;
 import personal.mario.bean.MusicCommentMessage;
 
+/*生成Excel工具类*/
 public class GenerateExcelUtils {
 	private static Logger logger = Logger.getLogger(GenerateExcelUtils.class);
 	
+	//歌曲信息表头生成
 	public static HSSFSheet generateCommentMessageExcelInit(HSSFWorkbook workbook) {
         HSSFSheet sheet = workbook.createSheet("歌曲信息");
         sheet.setDefaultColumnWidth(15);
@@ -47,6 +49,7 @@ public class GenerateExcelUtils {
         return sheet;
 	}
 	
+	//歌曲信息数据填充
 	public static void generateCommentMessageExcelProcess(HSSFWorkbook workbook, HSSFSheet sheet, MusicCommentMessage musicCommentMessage, int rowNum) {
 		HSSFCellStyle cellStyle = workbook.createCellStyle();
         cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
@@ -66,12 +69,14 @@ public class GenerateExcelUtils {
         cell.setCellStyle(cellStyle);
 	}
 	
+	//歌曲信息Excel生成
 	public static void generateCommentMessageExcelWrite(HSSFWorkbook workbook) throws IOException {
 		FileOutputStream fos = new FileOutputStream(Constants.COMMENT_MESSAGE_PATH);
         workbook.write(fos);
         fos.close();
 	}
 	
+	//歌曲评论Excel生成
 	public static void generateCommentsExcel(MusicCommentMessage musicCommentMessage) throws IOException {
 		
 		HSSFWorkbook workbook = new HSSFWorkbook();
@@ -154,6 +159,7 @@ public class GenerateExcelUtils {
         fos.close();
 	}
 	
+	//TOP 歌曲 Excel生成
 	public static void generateTopMusicExcel(List<MusicCommentMessage> ms) throws IOException {
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet("Top" + ms.size() + "歌曲");

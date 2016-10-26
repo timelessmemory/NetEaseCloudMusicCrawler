@@ -5,6 +5,7 @@ import java.util.List;
 import personal.mario.bean.MusicCommentMessage;
 import personal.mario.utils.Constants;
 
+/*计算获取TOP 歌曲*/
 public class TopMusicCalculateService {
 	private static List<MusicCommentMessage> ms = new ArrayList<MusicCommentMessage>();
 	

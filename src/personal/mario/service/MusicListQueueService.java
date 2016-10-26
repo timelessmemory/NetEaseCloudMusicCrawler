@@ -3,6 +3,7 @@ package personal.mario.service;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+/*歌单队列*/
 public class MusicListQueueService {
 	private static Queue<String> uncrawledMusicList = new ConcurrentLinkedQueue<String>();
 	

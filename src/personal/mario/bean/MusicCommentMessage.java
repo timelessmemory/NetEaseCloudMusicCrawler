@@ -3,10 +3,17 @@ package personal.mario.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+/*歌曲相关信息POJO*/
 public class MusicCommentMessage {
+	//歌名+歌手
 	private String songTitle;
+	
+	//歌曲链接
 	private String songUrl;
+	
 	private int commentCount;
+	
+	//评论
 	private List<MusicComment> comments = new ArrayList<MusicComment>();
 	
 	public MusicCommentMessage() {}
