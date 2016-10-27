@@ -160,7 +160,7 @@ public class GenerateExcelUtils {
 	}
 	
 	//TOP 歌曲 Excel生成
-	public static void generateTopMusicExcel(List<MusicCommentMessage> ms) throws IOException {
+	public static void generateTopMusicExcel(List<MusicCommentMessage> ms, String path) throws IOException {
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet("Top" + ms.size() + "歌曲");
         sheet.setDefaultColumnWidth(15);
@@ -208,7 +208,7 @@ public class GenerateExcelUtils {
 	        cell.setCellStyle(cellStyle);
     	}
         
-        FileOutputStream fos = new FileOutputStream(Constants.TOP_MUSIC_PATH);
+        FileOutputStream fos = new FileOutputStream(path);
         workbook.write(fos);
         fos.close();
 	}

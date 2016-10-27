@@ -25,15 +25,21 @@ public class Constants {
 	//TOP歌曲文本路径
 	public static final String TOP_MUSIC_PATH = "/home/user/workspace/NetEaseMusicCrawler/log/top_music.xls";
 	
+	//歌曲评论大于某个值文本路径
+	public static final String TOP_COMMENT_MORE_MUSIC_PATH = "/home/user/workspace/NetEaseMusicCrawler/log/music_comment_gt.xls";
+	
 	//要爬取的歌单数
-	public static final int MUSIC_LIST_COUNT = 6;
+	public static final int MUSIC_LIST_COUNT = 100;
 	
 	//分页数
-	public static final int PER_PAGE = 2;
+	public static final int PER_PAGE = 35;
 	
-	//便宜俩个
+	//偏移量
 	public static final int OFFSET = 0;
 	
 	//要爬取的TOP歌曲数
 	public static final int TOP_MUSIC_COUNT = 20;
+	
+	//获取评论数大于该值的歌曲
+	public static final int COMMENTS_LIMIT = 100000;
 }

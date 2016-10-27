@@ -27,6 +27,7 @@ public class NetEaseCrawler implements Runnable {
 	private int offset =Constants.OFFSET;
 	private HSSFWorkbook commentMessageWorkbook = new HSSFWorkbook();
 	private List<MusicCommentMessage> ms = null;
+	private List<MusicCommentMessage> msl = null;
 	private static Logger logger = Logger.getLogger(NetEaseCrawler.class);
 	
 	@Override
@@ -61,11 +62,14 @@ public class NetEaseCrawler implements Runnable {
 						//判断是否加入Top歌曲列表
 						ms = TopMusicCalculateService.getTopMusic(mcm);
 						
+						//歌曲评论数是否大于某个值进行收录
+						msl = TopMusicCalculateService.getMusicCommentsCountMore(mcm);
+						
 						//向歌曲信息Excel插入数据
 						GenerateExcelUtils.generateCommentMessageExcelProcess(commentMessageWorkbook, commentMessageSheet, mcm, count);
 						
 						//生成歌曲评论Excel
-//						GenerateExcelUtils.generateCommentsExcel(mcm);
+						GenerateExcelUtils.generateCommentsExcel(mcm);
 						
 						//加入已经爬取的队列，供以后查重判断
 						MusicQueueService.addCrawledMusic(songId);
@@ -78,7 +82,10 @@ public class NetEaseCrawler implements Runnable {
 			GenerateExcelUtils.generateCommentMessageExcelWrite(commentMessageWorkbook);
 			
 			//生成Top歌曲Excel
-			GenerateExcelUtils.generateTopMusicExcel(ms);
+			GenerateExcelUtils.generateTopMusicExcel(ms, Constants.TOP_MUSIC_PATH);
+			
+			//生成评论数大于某个值的Top歌曲Excel
+			GenerateExcelUtils.generateTopMusicExcel(msl, Constants.TOP_COMMENT_MORE_MUSIC_PATH);
 			
 			logger.info("count : " + count);
 			
