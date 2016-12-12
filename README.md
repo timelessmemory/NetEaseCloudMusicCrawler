@@ -3,7 +3,7 @@
 * httpClient + Jsoup<br/>
 * 单线程, 队列， log4j<br/>
 * Top music<br/>
-* 评论大于某值的smusic<br/>
+* 评论大于某值(自定义)的music<br/>
 * 所有爬取到歌曲的信息及评论<br/>
 * 导出结果到excel<br/>
 ## result
